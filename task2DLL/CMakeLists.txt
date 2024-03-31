@@ -1,4 +1,6 @@
-﻿cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required (VERSION 3.12)
+
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Включение горячей перезагрузки для компиляторов MSVC, если поддерживается.
 if (POLICY CMP0141)
@@ -9,14 +11,15 @@ endif()
 
 
 
-project ("task2DLL")
-set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ./bin)
-set (SOURCE_EXE ./src/main.cpp)
-add_executable (exe ${SOURCE_EXE})
-target_link_libraries (exe dll)
+project (task2DLL)
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
+set (SOURCE_EXE src/main.cpp)
+add_executable (goodbye_sayer ${SOURCE_EXE})
+target_link_libraries (goodbye_sayer leaverDLL)
+set_property(TARGET goodbye_sayer PROPERTY CXX_STANDARD 20)
 
-
-
+target_compile_definitions (goodbye_sayer PRIVATE LEAVER_EXPORTS)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 
 # Включите подпроекты.
@@ -24,9 +27,4 @@ target_link_libraries (exe dll)
 add_subdirectory ("subdirectory")
 # ?
 include_directories ("subdirectory")
-
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET exe PROPERTY CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-endif()
 

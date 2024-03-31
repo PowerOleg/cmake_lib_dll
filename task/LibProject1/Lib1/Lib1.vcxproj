@@ -132,9 +132,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Greater.cpp" />
+    <ClCompile Include="Leaver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Greater.h" />
+    <ClInclude Include="Leaver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
