@@ -18,8 +18,7 @@ add_executable (goodbye_sayer ${SOURCE_EXE})
 target_link_libraries (goodbye_sayer leaverDLL)
 set_property(TARGET goodbye_sayer PROPERTY CXX_STANDARD 20)
 
-target_compile_definitions (goodbye_sayer PRIVATE LEAVER_EXPORTS)
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+target_compile_definitions (goodbye_sayer PUBLIC LEAVER_EXPORTS)
 
 
 # Включите подпроекты.
